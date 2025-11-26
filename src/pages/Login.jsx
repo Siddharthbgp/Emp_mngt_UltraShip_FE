@@ -107,7 +107,7 @@ const Login = () => {
                             <strong>Demo Credentials:</strong>
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            Admin: username=<strong>admin</strong>, password=<strong>admin123</strong>
+                            Admin: username=<strong>admin</strong>, password=<strong>employee123</strong>
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             Employee: username=<strong>employee</strong>, password=<strong>employee123</strong>
