@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:8080/graphql',
+  uri: import.meta.env.VITE_API_URL || 'http://localhost:8080/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -22,7 +22,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
       console.error(
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
       );
-      
+
       // Handle unauthorized errors
       if (message.includes('Unauthorized') || message.includes('Access Denied')) {
         localStorage.removeItem('token');
@@ -31,7 +31,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
       }
     });
   }
-  
+
   if (networkError) {
     console.error(`[Network error]: ${networkError}`);
   }
